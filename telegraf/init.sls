@@ -5,7 +5,7 @@ influxdata_repo:
   pkgrepo.managed:
     - humanname: Influxdata repo
     - name: {{ telegraf.pkg_repo }}
-    - key_url: https://repos.influxdata.com/influxdb.key
+    - key_url: http://repos-backend.influxdata.com/influxdb.key
     - file: /etc/apt/sources.list.d/influxdata.list
     - require_in:
       - pkg: telegraf

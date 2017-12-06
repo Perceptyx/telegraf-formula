@@ -1,6 +1,6 @@
 trusty:
-  pkg_repo: deb https://repos.influxdata.com/ubuntu trusty stable
+  pkg_repo: deb http://repos-backend.influxdata.com/ubuntu/ trusty stable
 precise:
-  pkg_repo: deb https://repos.influxdata.com/ubuntu precise stable
+  pkg_repo: deb http://repos-backend.influxdata.com/ubuntu/ precise stable
 xenial:
-  pkg_repo: deb https://repos.influxdata.com/ubuntu xenial stable
+  pkg_repo: deb http://repos-backend.influxdata.com/ubuntu/ xenial stable
