@@ -35,10 +35,11 @@ telegraf_service:
       - pkg: telegraf
 
 {% if grains['os'] == 'FreeBSD' %}
-file.managed:
-  - name: /etc/newsyslog.conf.d/telegraf
-  - source: salt://telegraf/templates/telegraf
-  - owner: root
-  - group: wheel
-  - template: jinja
+telegraf_newsyslog_conf:
+  file.managed:
+    - name: /etc/newsyslog.conf.d/telegraf
+    - source: salt://telegraf/templates/telegraf
+    - owner: root
+    - group: wheel
+    - template: jinja
 {% endif %}
