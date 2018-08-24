@@ -1,6 +1,6 @@
 {% from "telegraf/map.jinja" import telegraf with context %}
 
-{% if not grains['os'] == 'FreeBSD' %}
+{% if grains['os'] == 'Ubuntu' %}
 influxdata_repo:
   pkgrepo.managed:
     - humanname: Influxdata repo
@@ -11,9 +11,17 @@ influxdata_repo:
       - pkg: telegraf
 {% endif %}
 
+{% if grains['os'] == 'Fedora' %}
+telegraf_pkg:
+  pkg.installed:
+    - sources:
+      - telegraf: https://dl.influxdata.com/telegraf/releases/telegraf-1.7.3-1.x86_64.rpm
+{% else %}
+
 telegraf_pkg:
   pkg.installed:
     - name: telegraf
+{% endif %}
 
 telegraf_conf:
   file.managed:
