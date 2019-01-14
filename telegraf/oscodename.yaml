@@ -4,3 +4,5 @@ precise:
   pkg_repo: deb http://repos-backend.influxdata.com/ubuntu/ precise stable
 xenial:
   pkg_repo: deb http://repos-backend.influxdata.com/ubuntu/ xenial stable
+bionic:
+  pkg_repo: deb http://repos-backend.influxdata.com/ubuntu/ bionic stable
