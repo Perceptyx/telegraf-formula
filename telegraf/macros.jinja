@@ -12,7 +12,7 @@
 
 {%- macro render_section(section) %}
     {#- First level #}
-    {%- for header, opts in telegraf[section].iteritems() %}
+    {%- for header, opts in telegraf[section].items() %}
     {%- if section == 'general' %}
 [{{ header }}]
     {%- elif section in ['outputs', 'inputs'] %}
@@ -20,12 +20,12 @@
     {%- endif %}
         {#- Second level #}
         {%- if opts != None %}
-            {%- for option, value in opts.iteritems() %}
+            {%- for option, value in opts.items() %}
                 {%- if option not in ['tagpass', 'tagdrop', 'tags'] -%}
                     {{ render_options(option, value) }}
                 {%- else %}
   [{{ section }}.{{ header }}.{{ option }}]
-                    {%- for o, v in value.iteritems() -%}
+                    {%- for o, v in value.items() -%}
                         {{ render_options(o, v)|indent(2, 4) }}
                     {%- endfor %}
                 {%- endif %}
