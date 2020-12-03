@@ -12,7 +12,7 @@ influxdata_repo:
 {% elif grains['os_family'] == 'RedHat' %}
 influxdata_repo:
   pkgrepo.managed:
-    - humanname: CentOS-$releasever - Base
+    - humanname: {{ grains['os'] }}-$releasever - Base
     - baseurl: https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable
     - gpgcheck: 1
     - gpgkey: https://repos.influxdata.com/influxdb.key
