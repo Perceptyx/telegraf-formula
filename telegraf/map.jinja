@@ -3,7 +3,7 @@
 
 {% set oscodename = salt['grains.filter_by'](oscodename_map, grain='oscodename') %}
 
-{% if not grains['os'] == 'FreeBSD' %}
+{% if grains['os_family'] == 'Debian' %}
        {% do defaults.telegraf.update(oscodename) %}
 {% endif %}
 
